@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bla726ry3k4cn"]
+
+[ext_resource type="PackedScene" uid="uid://ctghbmspbjmvd" path="res://player.tscn" id="1_88gup"]
+[ext_resource type="Script" uid="uid://hkxt50nrtc14" path="res://camera_2d.gd" id="2_4o3f6"]
+[ext_resource type="PackedScene" uid="uid://dyx511rnmpm2v" path="res://zombie.tscn" id="2_bisa2"]
+[ext_resource type="PackedScene" uid="uid://di51l8e7av20o" path="res://Key.tscn" id="4_ka7wq"]
+[ext_resource type="PackedScene" uid="uid://bwnxufjo82bo7" path="res://Door.tscn" id="5_x5k2b"]
+
+[node name="Room" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -2
+custom_minimum_size = Vector2(320, 180)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.97983, 2.17709)
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_88gup")]
+position = Vector2(151, 86)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("2_4o3f6")
+target_node = NodePath("../Player")
+smoothing = 3.0
+
+[node name="zombie" parent="." instance=ExtResource("2_bisa2")]
+position = Vector2(254, 115)
+
+[node name="zombie2" parent="." instance=ExtResource("2_bisa2")]
+position = Vector2(253, 49)
+
+[node name="zombie3" parent="." instance=ExtResource("2_bisa2")]
+position = Vector2(52, 134)
+
+[node name="Key" parent="." instance=ExtResource("4_ka7wq")]
+position = Vector2(153, 166)
+
+[node name="Door" parent="." instance=ExtResource("5_x5k2b")]
+position = Vector2(72, 12)

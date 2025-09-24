@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://k2jit0v5gfpw"]
+
+[ext_resource type="Script" uid="uid://dtuv7n1yex1p" path="res://bullet_casing.gd" id="1_xhqiy"]
+[ext_resource type="Texture2D" uid="uid://c2k67i2ml3frm" path="res://Art/bullet_casing.png" id="2_2hubu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dh5u1"]
+size = Vector2(2, 1)
+
+[node name="bullet_casing" type="RigidBody2D"]
+collision_layer = 4
+script = ExtResource("1_xhqiy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2hubu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dh5u1")
+
+[node name="Timer" type="Timer" parent="CollisionShape2D"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CollisionShape2D/Timer" to="." method="_on_timer_timeout"]
