@@ -21,3 +21,5 @@ added physics bullet casings - 1hr 30 min (help from google gemini - initial pro
 made enemies change sprite when dead - 10 min
 
 fixing enemy detection - 2hrs (and counting...)
+
+FIXED ENEMY DETECTION - 3HRS 30 MIN TOTAL (ONE GODDAMN TYPO)
