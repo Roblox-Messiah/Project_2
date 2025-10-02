@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://decs4633ctone"
+path="res://.godot/imported/empty gun click.mp3-3edba04fb3aca2bd8066f086d1ca3078.mp3str"
+
+[deps]
+
+source_file="res://sounds/weapons/empty gun click.mp3"
+dest_files=["res://.godot/imported/empty gun click.mp3-3edba04fb3aca2bd8066f086d1ca3078.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

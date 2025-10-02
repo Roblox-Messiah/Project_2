@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d1k5o4f4fom2c"
+path="res://.godot/imported/m9 reload (empty).mp3-9495023ee7474fac91d31659ae51da67.mp3str"
+
+[deps]
+
+source_file="res://sounds/weapons/m9 reload (empty).mp3"
+dest_files=["res://.godot/imported/m9 reload (empty).mp3-9495023ee7474fac91d31659ae51da67.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

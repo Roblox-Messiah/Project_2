@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyx511rnmpm2v"]
+
+[ext_resource type="Script" uid="uid://c5n1h66vxfpay" path="res://scripts/enimies/zombie/zombie.gd" id="1_roy8y"]
+[ext_resource type="PackedScene" uid="uid://d0g3rwiih5x0k" path="res://scenes/enimies/zombie/enemy_1.tscn" id="1_uiaus"]
+[ext_resource type="AudioStream" uid="uid://drowbalq1pche" path="res://sounds/damage/hit/wet_slam.mp3" id="3_jmu02"]
+[ext_resource type="AudioStream" uid="uid://vxmux767ony7" path="res://sounds/damage/death/meat_slam.mp3" id="4_eseir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_roy8y"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eseir"]
+radius = 47.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eseir"]
+size = Vector2(4.37118, 16.5336)
+
+[node name="zombie" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 3
+platform_floor_layers = 4294967040
+script = ExtResource("1_roy8y")
+knockback_distance = 5.0
+
+[node name="enemy_1" parent="." instance=ExtResource("1_uiaus")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_roy8y")
+debug_color = Color(0.877573, 0.283267, 0.354411, 0.42)
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_eseir")
+debug_color = Color(0.182678, 0.639348, 0.190915, 0.42)
+
+[node name="hurt sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jmu02")
+volume_db = -7.25
+
+[node name="death sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eseir")
+volume_db = -9.0
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(4.77057, 1.19209e-07)
+scale = Vector2(1.93515, 0.846763)
+shape = SubResource("RectangleShape2D_eseir")
+debug_color = Color(0.559266, 0.190747, 0.891973, 0.42)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

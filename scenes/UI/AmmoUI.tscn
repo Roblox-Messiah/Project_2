@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxhfuqmao7kwo"]
+
+[ext_resource type="Script" uid="uid://c6213fnejpiy" path="res://scripts/UI/ammoUI.gd" id="1_054kq"]
+
+[node name="AmmoUi" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_054kq")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_top = 157.0
+offset_right = 40.0
+offset_bottom = 180.0

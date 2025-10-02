@@ -39,3 +39,13 @@ made key and door sprites - 5 min
 
 made key and door functionality - 30 min
     tutorial: https://www.youtube.com/watch?v=tN76BJ2XyDQ
+
+fixed player sprites - 10 min
+
+made tile set for map - 1hr 30 min
+
+added collion to wall tiles - 30 min
+
+made first level layout - 15 min
+
+made second level layout - 25 min

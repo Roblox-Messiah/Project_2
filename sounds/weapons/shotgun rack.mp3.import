@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1ymwdg3pdi1u"
+path="res://.godot/imported/shotgun rack.mp3-a310a3145a7509885b40f990634524ae.mp3str"
+
+[deps]
+
+source_file="res://sounds/weapons/shotgun rack.mp3"
+dest_files=["res://.godot/imported/shotgun rack.mp3-a310a3145a7509885b40f990634524ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

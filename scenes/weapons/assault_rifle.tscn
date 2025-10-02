@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfyx6btxkyieo"]
+
+[ext_resource type="Script" uid="uid://nqet4t3ddsx" path="res://scripts/weapons/assault_rifle.gd" id="1_el8vo"]
+[ext_resource type="AudioStream" uid="uid://wfneitweqytq" path="res://sounds/weapons/m16 shot.mp3" id="2_14wsr"]
+[ext_resource type="AudioStream" uid="uid://decs4633ctone" path="res://sounds/weapons/empty gun click.mp3" id="3_e1nc6"]
+[ext_resource type="AudioStream" uid="uid://denn204aahaoc" path="res://sounds/weapons/m16 reload.mp3" id="4_e1nc6"]
+[ext_resource type="AudioStream" uid="uid://cbr3nmj8mmwrx" path="res://sounds/weapons/m16 reload (empty).mp3" id="5_61psk"]
+
+[node name="assault_rifle" type="Node2D" groups=["gun"]]
+script = ExtResource("1_el8vo")
+
+[node name="gun" type="Sprite2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(9, 0)
+
+[node name="m16_shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_14wsr")
+volume_db = -15.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 1.8
+
+[node name="m16_empty_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e1nc6")
+volume_db = -8.0
+
+[node name="m16_reload_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e1nc6")
+volume_db = -3.0
+
+[node name="M16_reload_empty_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_61psk")
+volume_db = -3.0
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

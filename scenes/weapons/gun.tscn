@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsfwqgbb23y6j"]
+
+[ext_resource type="Script" uid="uid://b34dp2y76pwqy" path="res://scripts/weapons/gun.gd" id="1_vk1bi"]
+[ext_resource type="AudioStream" uid="uid://dhrlyriuoln36" path="res://sounds/weapons/Beretta single shot.mp3" id="2_dk5gl"]
+[ext_resource type="AudioStream" uid="uid://decs4633ctone" path="res://sounds/weapons/empty gun click.mp3" id="3_mfrst"]
+[ext_resource type="AudioStream" uid="uid://brn2p7aducefu" path="res://sounds/weapons/m9 reload.mp3" id="4_nurr2"]
+[ext_resource type="AudioStream" uid="uid://d1k5o4f4fom2c" path="res://sounds/weapons/m9 reload (empty).mp3" id="5_e4hp8"]
+
+[node name="gun" type="Node2D" groups=["gun"]]
+script = ExtResource("1_vk1bi")
+
+[node name="gun" type="Sprite2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(9, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dk5gl")
+volume_db = -15.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="ReloadTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="empty sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mfrst")
+volume_db = -8.0
+
+[node name="reload_empty_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_e4hp8")
+volume_db = -3.0
+
+[node name="reload sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_nurr2")
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
