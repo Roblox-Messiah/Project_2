@@ -24,7 +24,6 @@ var is_reloading = false
 # This signal tells the UI when to update
 signal ammo_changed(current, reserve)
 
-
 func _ready():
 	# --- DEBUGGING CODE ---
 	print("--- DEBUGGING GUN SCENE ---")
@@ -38,13 +37,12 @@ func _ready():
 	current_ammo = magazine_size
 	ammo_changed.emit(current_ammo, reserve_ammo)
 
-
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
-
+	
 	# --- Shooting Logic ---
-	if Input.is_action_pressed("shoot") and fire_rate_timer.is_stopped():
-		if current_ammo > 0 and not is_reloading:
+	if Input.is_action_pressed("shoot") and fire_rate_timer.is_stopped() and not is_reloading:
+		if current_ammo > 0:
 			fire_rate_timer.start()
 			shoot_sound.play()
 			
@@ -66,13 +64,13 @@ func _process(delta: float) -> void:
 			current_ammo -= 1
 			ammo_changed.emit(current_ammo, reserve_ammo)
 		else:
-			if Input.is_action_just_pressed("shoot") and not is_reloading:
+			# Play empty sound only once per trigger pull
+			if Input.is_action_just_pressed("shoot"):
 				empty_sound.play()
-
+	
 	# --- Reloading logic ---
 	if Input.is_action_just_pressed("reload") and not is_reloading:
 		reload()
-
 
 func reload():
 	if current_ammo < magazine_size and reserve_ammo > 0:
@@ -86,7 +84,6 @@ func reload():
 			reload_sound.play()
 		
 		reload_timer.start()
-
 
 func _on_reload_timer_timeout():
 	var ammo_needed = magazine_size - current_ammo

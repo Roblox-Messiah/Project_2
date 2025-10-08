@@ -8,6 +8,7 @@ size = Vector2(2, 1)
 
 [node name="bullet_casing" type="RigidBody2D"]
 collision_layer = 4
+collision_mask = 17
 script = ExtResource("1_xhqiy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

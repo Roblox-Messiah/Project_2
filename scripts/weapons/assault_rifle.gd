@@ -8,7 +8,7 @@ const BULLET_CASING = preload("res://scenes/weapons/bullets/bullet_casing.tscn")
 @onready var shoot_sound = $m16_shoot
 @onready var empty_sound = $m16_empty_sound
 @onready var reload_sound = $m16_reload_sound
-@onready var reload_empty_sound = $M16_reload_empty_sound
+@onready var reload_empty_sound = $m16_reload_empty_sound
 @onready var fire_rate_timer = $Timer
 @onready var reload_timer = $ReloadTimer
 @onready var muzzle = $Marker2D
@@ -30,7 +30,7 @@ func _ready():
 	ammo_changed.emit(current_ammo, reserve_ammo)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 
 	# --- Shooting Logic ---

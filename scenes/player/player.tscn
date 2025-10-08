@@ -3,15 +3,16 @@
 [ext_resource type="Script" uid="uid://biyaw15byj4ne" path="res://scripts/player/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://ccg5yuhv6vd4p" path="res://scripts/UX/marker_2d.gd" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://nwaffuk8cb6b" path="res://Art/player/player_pistol.png" id="2_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://bsfwqgbb23y6j" path="res://scenes/weapons/gun.tscn" id="3_i3pqv"]
 [ext_resource type="AudioStream" uid="uid://c711t2yvuw4dp" path="res://sounds/damage/hit/player hit.mp3" id="5_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://vxmux767ony7" path="res://sounds/damage/death/meat_slam.mp3" id="6_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://bsfwqgbb23y6j" path="res://scenes/weapons/gun.tscn" id="6_75vfm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v321d"]
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
+collision_mask = 17
 platform_floor_layers = 4294967040
 script = ExtResource("1_onrkg")
 knockback_distance = 10.0
@@ -26,9 +27,6 @@ texture = ExtResource("2_i3pqv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v321d")
 
-[node name="gun" parent="." instance=ExtResource("3_i3pqv")]
-rotation = 1.5708
-
 [node name="player_hurt_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_2hs0m")
 volume_db = -5.0
@@ -39,3 +37,9 @@ stream = ExtResource("6_1jxqw")
 volume_db = -9.0
 
 [node name="WeaponHolder" type="Node2D" parent="."]
+rotation = 1.5708
+
+[node name="gun" parent="WeaponHolder" instance=ExtResource("6_75vfm")]
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true

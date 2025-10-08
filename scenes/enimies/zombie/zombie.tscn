@@ -16,6 +16,7 @@ size = Vector2(4.37118, 16.5336)
 
 [node name="zombie" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 3
+collision_mask = 17
 platform_floor_layers = 4294967040
 script = ExtResource("1_roy8y")
 knockback_distance = 5.0
@@ -31,6 +32,9 @@ debug_color = Color(0.877573, 0.283267, 0.354411, 0.42)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Detection"]
 shape = SubResource("CircleShape2D_eseir")
 debug_color = Color(0.182678, 0.639348, 0.190915, 0.42)
+
+[node name="RayCast2D" type="RayCast2D" parent="Detection"]
+collision_mask = 17
 
 [node name="hurt sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jmu02")

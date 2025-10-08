@@ -65,7 +65,6 @@ position = Vector2(-84, -287)
 [node name="zombie7" parent="." instance=ExtResource("3_bxelx")]
 position = Vector2(682, -248)
 rotation = 1.56764
-scale = Vector2(1, 1)
 
 [node name="zombie8" parent="." instance=ExtResource("3_bxelx")]
 position = Vector2(224, -149)
@@ -80,7 +79,7 @@ position = Vector2(679.91, -338.82)
 [node name="AmmoUi" parent="." instance=ExtResource("6_3pgh2")]
 
 [node name="RiflePickup" parent="." instance=ExtResource("7_bxelx")]
-position = Vector2(357, -176)
+position = Vector2(188, 257)
 scale = Vector2(0.250272, 0.250272)
 
 [node name="TileMap" type="TileMap" parent="."]

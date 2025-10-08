@@ -19,7 +19,7 @@ func _ready():
 	if locked_texture:
 		sprite_2d.texture = locked_texture
 
-func _process(delta):
+func _process(_delta):
 	# Every frame, check if the player is in the area and presses the interact button
 	if player_in_area and Input.is_action_just_pressed("Interact"):
 		# Check if the player has the key

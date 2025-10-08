@@ -5,7 +5,7 @@ var origin = null
 
 @export var damage: int = 20 # Default pistol damage
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Set the velocity to move the bullet forward along its current rotation.
 	velocity = transform.x * SPEED 
 	

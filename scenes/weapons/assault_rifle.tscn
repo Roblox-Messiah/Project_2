@@ -9,14 +9,10 @@
 [node name="assault_rifle" type="Node2D" groups=["gun"]]
 script = ExtResource("1_el8vo")
 
-[node name="gun" type="Sprite2D" parent="."]
+[node name="assault_rifle" type="Sprite2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9, 0)
-
-[node name="m16_shoot" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_14wsr")
-volume_db = -15.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -24,6 +20,10 @@ one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="."]
 wait_time = 1.8
+
+[node name="m16_shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_14wsr")
+volume_db = -15.0
 
 [node name="m16_empty_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_e1nc6")
@@ -33,7 +33,7 @@ volume_db = -8.0
 stream = ExtResource("4_e1nc6")
 volume_db = -3.0
 
-[node name="M16_reload_empty_sound" type="AudioStreamPlayer2D" parent="."]
+[node name="m16_reload_empty_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_61psk")
 volume_db = -3.0
 
