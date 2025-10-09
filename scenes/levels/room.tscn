@@ -104,3 +104,4 @@ position = Vector2(362, -171)
 
 [node name="RandomItemSpawner" parent="." instance=ExtResource("8_x4s4f")]
 item_scene = ExtResource("4_vqeip")
+spawn_point_group = "key_spawns"
