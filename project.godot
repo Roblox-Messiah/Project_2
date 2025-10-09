@@ -30,6 +30,7 @@ enemies=""
 Player=""
 gun=""
 ui=""
+key_spawns=""
 
 [input]
 
