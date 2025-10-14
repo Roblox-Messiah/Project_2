@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cl7ban626210h"
+path="res://.godot/imported/Locked Door.mp3-e9e0bc7c8685a96bc2165500c0307b62.mp3str"
+
+[deps]
+
+source_file="res://sounds/environment/Locked Door.mp3"
+dest_files=["res://.godot/imported/Locked Door.mp3-e9e0bc7c8685a96bc2165500c0307b62.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

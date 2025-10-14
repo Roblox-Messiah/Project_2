@@ -2,6 +2,7 @@ extends StaticBody2D
 
 # This will hold a reference to the player when they are in range
 var player_in_area = null
+signal door_closed
 
 # These optional textures can be set in the Inspector
 @export var locked_texture: Texture2D
@@ -9,6 +10,9 @@ var player_in_area = null
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var locked_sound = $"Locked Door Sound"
+@onready var unlock_sound = $"Unlocked Door Sound"
+@onready var close_door_sound = $"Close Door Sound"
 
 func _ready():
 	# Connect the signals from the InteractionArea
@@ -27,10 +31,15 @@ func _process(_delta):
 			unlock()
 		else:
 			print("Door is locked!")
-			# Optional: Play a "locked" sound or show a message
-			# $LockedSound.play()
+			# --- Play Locked Sound ---
+			locked_sound.play()
 
 func unlock():
+	# Tells the player that they have used the key
+	player_in_area.has_key = false
+	
+	# --- Play Unlock Sound ---
+	unlock_sound.play()
 	# Disable the physical collision so the player can pass through
 	collision_shape_2d.set_deferred("disabled", true)
 	
@@ -51,3 +60,18 @@ func _on_interaction_area_body_entered(body):
 func _on_interaction_area_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_area = null
+
+func close_door():
+	print("DEBUG: close_door() function has started.")
+	# Change the sprite back to the locked/closed texture
+	if locked_texture:
+		sprite_2d.texture = locked_texture
+	
+	# Play the closing sound
+	close_door_sound.play()
+	
+	# Wait for the sound to finish
+	await close_door_sound.finished
+	print("DEBUG: Door sound finished. This function is now complete.")
+	print("DEBUG: Door finished closing. Emitting 'door_closed' signal.")
+	door_closed.emit()

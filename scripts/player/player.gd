@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal took_damage
+signal key_status_changed(has_key)
 @onready var sprite_2d = $Marker2D/Sprite2D
 @onready var weapon_holder = $WeaponHolder
 var current_weapon_node = null
@@ -20,10 +21,14 @@ const RIFLE_PLAYER_TEXTURE = preload("res://Art/player/player_assault_rifle.png"
 # --- PLAYER STATS ---
 @export var health: int = 100
 @export var knockback_distance: float = 50.0
-var has_key = false
+var has_key = false:
+	set(value):
+		has_key = value
+		key_status_changed.emit(has_key)
 
 func _ready() -> void:
 	equip_weapon(PISTOL_SCENE)
+	print("h")
 
 func _physics_process(_delta: float) -> void:
 	# --- MOVEMENT ---

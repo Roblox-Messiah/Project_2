@@ -49,3 +49,20 @@ added collion to wall tiles - 30 min
 made first level layout - 15 min
 
 made second level layout - 25 min
+
+FINALLY fixed reload bug - 1hr
+
+kind of fixed zombie detection - 15 min
+
+made key spawning system - 1hr
+    sound used: https://www.youtube.com/watch?v=warMJ_4uUuY
+    
+
+made door level transition - 1hr 30 min
+    sounds used: 
+        https://www.youtube.com/watch?v=l-c3dH8ZJ3o
+        https://www.youtube.com/watch?v=A1x1fbpnjb4
+        https://www.youtube.com/watch?v=92YfzPu3Ukc
+
+made key card pickup overlay - 20 min
+

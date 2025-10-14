@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6ilg60lmp0bf"
+path="res://.godot/imported/Key Pickup.mp3-5d579695c3905d53ded705cecafa2639.mp3str"
+
+[deps]
+
+source_file="res://sounds/environment/Key Pickup.mp3"
+dest_files=["res://.godot/imported/Key Pickup.mp3-5d579695c3905d53ded705cecafa2639.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

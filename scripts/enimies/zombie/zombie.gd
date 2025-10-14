@@ -29,8 +29,8 @@ var has_seen := false
 # --- GODOT FUNCTIONS ---
 func _ready():
 	original_texture = sprite_2d.texture
-	attack_area.body_entered.connect(_on_attack_area_body_entered)
-	attack_area.body_exited.connect(_on_attack_area_body_exited)
+	#attack_area.body_entered.connect(_on_attack_area_body_entered)
+	#attack_area.body_exited.connect(_on_attack_area_body_exited)
 
 func _physics_process(_delta: float) -> void:
 	if target == null:
@@ -39,9 +39,10 @@ func _physics_process(_delta: float) -> void:
 	# --- LINE OF SIGHT CHECK ---
 	raycast.target_position = to_local(target.global_position)
 	raycast.force_raycast_update()
-	var can_see_player = not raycast.is_colliding()
+	var can_see_player = raycast.is_colliding()
 	if not has_seen:
 		has_seen = can_see_player
+		
 
 	# --- ATTACK LOGIC ---
 	# The zombie can only attack if it can see the player.

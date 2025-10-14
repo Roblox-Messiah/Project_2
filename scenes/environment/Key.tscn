@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://di51l8e7av20o"]
+[gd_scene load_steps=7 format=3 uid="uid://di51l8e7av20o"]
 
 [ext_resource type="Script" uid="uid://bhy1h7vhiynfi" path="res://scripts/environment/key.gd" id="1_3nogi"]
 [ext_resource type="Texture2D" uid="uid://cogp3sh67vdvq" path="res://Art/environment/key.png" id="2_40kd0"]
+[ext_resource type="AudioStream" uid="uid://c6ilg60lmp0bf" path="res://sounds/environment/Key Pickup.mp3" id="3_ticc1"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mwybp"]
 b = Vector2(0, 8.3556)
+
+[sub_resource type="Gradient" id="Gradient_ticc1"]
+colors = PackedColorArray(0.804743, 0.804743, 0.804743, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vlap7"]
+gradient = SubResource("Gradient_ticc1")
 
 [node name="Key" type="Area2D"]
 script = ExtResource("1_3nogi")
@@ -16,5 +23,13 @@ texture = ExtResource("2_40kd0")
 position = Vector2(0, -4)
 scale = Vector2(2.01672, 0.957442)
 shape = SubResource("SegmentShape2D_mwybp")
+
+[node name="Key Pickup Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ticc1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.113281, 0.140625)
+color = Color(0.963154, 0.86448, 0.340026, 1)
+texture = SubResource("GradientTexture2D_vlap7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

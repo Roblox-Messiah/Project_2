@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bla726ry3k4cn"]
+[gd_scene load_steps=15 format=4 uid="uid://bla726ry3k4cn"]
 
 [ext_resource type="PackedScene" uid="uid://ctghbmspbjmvd" path="res://scenes/player/player.tscn" id="1_ms3in"]
 [ext_resource type="Script" uid="uid://hkxt50nrtc14" path="res://scripts/UX/camera_2d.gd" id="2_3pgh2"]
@@ -9,6 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://2xk5kqn7rvfr" path="res://scenes/environment/rifle_pickup.tscn" id="7_bxelx"]
 [ext_resource type="TileSet" uid="uid://bsx5wk5tnpi8c" path="res://scenes/environment/indoors.tres" id="8_vqeip"]
 [ext_resource type="PackedScene" uid="uid://b1uoxbwi8yftr" path="res://scenes/environment/random_item_spawner.tscn" id="8_x4s4f"]
+[ext_resource type="PackedScene" uid="uid://cfjcrkfkhcmgr" path="res://scenes/levels/screen_fader.tscn" id="10_p71f0"]
+[ext_resource type="PackedScene" uid="uid://e2jnv73kggq2" path="res://scenes/levels/level_transition.tscn" id="11_13i0w"]
+[ext_resource type="PackedScene" uid="uid://cq82a4wkjlebm" path="res://scenes/UI/key_ui.tscn" id="12_dngmm"]
+[ext_resource type="Script" uid="uid://votcfk2jm6re" path="res://scripts/UX/GameManager.gd" id="13_nymxq"]
+
+[sub_resource type="Environment" id="Environment_dngmm"]
+background_mode = 3
+glow_enabled = true
 
 [node name="Room" type="Node2D"]
 y_sort_enabled = true
@@ -105,3 +113,17 @@ position = Vector2(362, -171)
 [node name="RandomItemSpawner" parent="." instance=ExtResource("8_x4s4f")]
 item_scene = ExtResource("4_vqeip")
 spawn_point_group = "key_spawns"
+
+[node name="ScreenFader" parent="." groups=["screen_fader"] instance=ExtResource("10_p71f0")]
+
+[node name="LevelTransition" parent="." instance=ExtResource("11_13i0w")]
+position = Vector2(680, -340)
+next_level_path = "res://scenes/levels/level_2.tscn"
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("13_nymxq")
+
+[node name="KeyUI" parent="." groups=["key_ui"] instance=ExtResource("12_dngmm")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dngmm")
