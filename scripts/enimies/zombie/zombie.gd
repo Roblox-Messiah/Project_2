@@ -39,9 +39,13 @@ func _physics_process(_delta: float) -> void:
 	# --- LINE OF SIGHT CHECK ---
 	raycast.target_position = to_local(target.global_position)
 	raycast.force_raycast_update()
-	var can_see_player = raycast.is_colliding()
-	if not has_seen:
-		has_seen = can_see_player
+	var can_see_player = false
+	if raycast.is_colliding():
+		var col = raycast.get_collider()
+		if col == target:
+			can_see_player = true
+			if not has_seen:
+				has_seen = can_see_player
 		
 
 	# --- ATTACK LOGIC ---
