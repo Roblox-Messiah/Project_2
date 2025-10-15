@@ -1,18 +1,18 @@
 [gd_scene load_steps=15 format=4 uid="uid://bla726ry3k4cn"]
 
 [ext_resource type="PackedScene" uid="uid://ctghbmspbjmvd" path="res://scenes/player/player.tscn" id="1_ms3in"]
-[ext_resource type="Script" uid="uid://hkxt50nrtc14" path="res://scripts/UX/camera_2d.gd" id="2_3pgh2"]
+[ext_resource type="PackedScene" uid="uid://cr14vrhserycw" path="res://scenes/player/camera_2d.tscn" id="2_dngmm"]
 [ext_resource type="PackedScene" uid="uid://dyx511rnmpm2v" path="res://scenes/enimies/zombie/zombie.tscn" id="3_bxelx"]
 [ext_resource type="PackedScene" uid="uid://di51l8e7av20o" path="res://scenes/environment/Key.tscn" id="4_vqeip"]
 [ext_resource type="PackedScene" uid="uid://bwnxufjo82bo7" path="res://scenes/environment/Door.tscn" id="5_x4s4f"]
-[ext_resource type="PackedScene" uid="uid://cxhfuqmao7kwo" path="res://scenes/UI/AmmoUI.tscn" id="6_3pgh2"]
 [ext_resource type="PackedScene" uid="uid://2xk5kqn7rvfr" path="res://scenes/environment/rifle_pickup.tscn" id="7_bxelx"]
 [ext_resource type="TileSet" uid="uid://bsx5wk5tnpi8c" path="res://scenes/environment/indoors.tres" id="8_vqeip"]
 [ext_resource type="PackedScene" uid="uid://b1uoxbwi8yftr" path="res://scenes/environment/random_item_spawner.tscn" id="8_x4s4f"]
 [ext_resource type="PackedScene" uid="uid://cfjcrkfkhcmgr" path="res://scenes/levels/screen_fader.tscn" id="10_p71f0"]
 [ext_resource type="PackedScene" uid="uid://e2jnv73kggq2" path="res://scenes/levels/level_transition.tscn" id="11_13i0w"]
 [ext_resource type="PackedScene" uid="uid://cq82a4wkjlebm" path="res://scenes/UI/key_ui.tscn" id="12_dngmm"]
-[ext_resource type="Script" uid="uid://votcfk2jm6re" path="res://scripts/UX/GameManager.gd" id="13_nymxq"]
+[ext_resource type="PackedScene" uid="uid://ko1q5ef431ay" path="res://scenes/UI/game_manager.tscn" id="12_nymxq"]
+[ext_resource type="PackedScene" uid="uid://by2665dk3kjkn" path="res://scenes/UI/hud.tscn" id="13_dngmm"]
 
 [sub_resource type="Environment" id="Environment_dngmm"]
 background_mode = 3
@@ -44,10 +44,8 @@ color = Color(0, 0, 0, 1)
 position = Vector2(151, 96)
 rotation = -1.5708
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
-script = ExtResource("2_3pgh2")
+[node name="Camera2D" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("2_dngmm")]
 target_node = NodePath("../Player")
-smoothing = 3.0
 
 [node name="zombie" parent="." instance=ExtResource("3_bxelx")]
 position = Vector2(-89, -148)
@@ -81,8 +79,6 @@ rotation = -2.33159
 
 [node name="Door" parent="." instance=ExtResource("5_x4s4f")]
 position = Vector2(679.91, -338.82)
-
-[node name="AmmoUi" parent="." instance=ExtResource("6_3pgh2")]
 
 [node name="RiflePickup" parent="." instance=ExtResource("7_bxelx")]
 position = Vector2(188, 257)
@@ -120,10 +116,11 @@ spawn_point_group = "key_spawns"
 position = Vector2(680, -340)
 next_level_path = "res://scenes/levels/level_2.tscn"
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("13_nymxq")
+[node name="GameManager" parent="." instance=ExtResource("12_nymxq")]
 
 [node name="KeyUI" parent="." groups=["key_ui"] instance=ExtResource("12_dngmm")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dngmm")
+
+[node name="HUD" parent="." instance=ExtResource("13_dngmm")]

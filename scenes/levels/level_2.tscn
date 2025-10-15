@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb7k3njvoh33x"]
+[gd_scene load_steps=12 format=3 uid="uid://cb7k3njvoh33x"]
 
 [ext_resource type="TileSet" uid="uid://bsx5wk5tnpi8c" path="res://scenes/environment/indoors.tres" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://bwnxufjo82bo7" path="res://scenes/environment/Door.tscn" id="2_g2h2n"]
+[ext_resource type="PackedScene" uid="uid://b1uoxbwi8yftr" path="res://scenes/environment/random_item_spawner.tscn" id="3_fiq81"]
+[ext_resource type="PackedScene" uid="uid://di51l8e7av20o" path="res://scenes/environment/Key.tscn" id="4_3p04p"]
+[ext_resource type="PackedScene" uid="uid://ctghbmspbjmvd" path="res://scenes/player/player.tscn" id="4_l37oo"]
+[ext_resource type="PackedScene" uid="uid://cr14vrhserycw" path="res://scenes/player/camera_2d.tscn" id="5_l37oo"]
+[ext_resource type="PackedScene" uid="uid://cxhfuqmao7kwo" path="res://scenes/UI/AmmoUI.tscn" id="6_qpwj6"]
+[ext_resource type="PackedScene" uid="uid://dup34o5tmnaxo" path="res://scenes/levels/teleporter.tscn" id="7_ibugp"]
+[ext_resource type="PackedScene" uid="uid://cfjcrkfkhcmgr" path="res://scenes/levels/screen_fader.tscn" id="8_8qukl"]
+[ext_resource type="PackedScene" uid="uid://cq82a4wkjlebm" path="res://scenes/UI/key_ui.tscn" id="10_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://ko1q5ef431ay" path="res://scenes/UI/game_manager.tscn" id="11_nt80m"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,5 +22,48 @@ layer_0/tile_data = PackedInt32Array(655360, 524288, 3, 589824, 589824, 0, 52428
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap"]
 tile_set = ExtResource("1_j2425")
 
+[node name="Player" parent="." instance=ExtResource("4_l37oo")]
+position = Vector2(306, -27)
+
 [node name="Door" parent="." instance=ExtResource("2_g2h2n")]
 position = Vector2(512, 32)
+
+[node name="Key_spawn1" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
+position = Vector2(1927, -803)
+item_scene = ExtResource("4_3p04p")
+spawn_point_group = "key_spawns"
+
+[node name="Key_spawn2" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
+position = Vector2(1926, -898)
+item_scene = ExtResource("4_3p04p")
+spawn_point_group = "key_spawns"
+
+[node name="Key_spawn3" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
+position = Vector2(1297, -944)
+item_scene = ExtResource("4_3p04p")
+spawn_point_group = "key_spawns"
+
+[node name="Key_spawn4" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
+position = Vector2(1679, -1261)
+item_scene = ExtResource("4_3p04p")
+spawn_point_group = "key_spawns"
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("5_l37oo")]
+target_node = NodePath("../Player")
+
+[node name="AmmoUi" parent="." instance=ExtResource("6_qpwj6")]
+position = Vector2(374, 191)
+
+[node name="Teleporter A" parent="." instance=ExtResource("7_ibugp")]
+position = Vector2(388, -32)
+target_teleporter_path = NodePath("../Teleporter B")
+
+[node name="Teleporter B" parent="." instance=ExtResource("7_ibugp")]
+position = Vector2(2020, -992)
+target_teleporter_path = NodePath("../Teleporter A")
+
+[node name="ScreenFader" parent="." groups=["screen_fader"] instance=ExtResource("8_8qukl")]
+
+[node name="KeyUI" parent="." groups=["key_ui"] instance=ExtResource("10_qsp8v")]
+
+[node name="GameManager" parent="." instance=ExtResource("11_nt80m")]

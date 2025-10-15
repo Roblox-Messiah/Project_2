@@ -10,6 +10,7 @@ var current_weapon_node = null
 @onready var invincibility_timer = $InvincibilityTimer
 @onready var hurt_sound = $player_hurt_sound
 @onready var death_sound = $player_death_sound
+@onready var health_bar = get_tree().get_first_node_in_group("ui_healthbar")
 const DEAD_TEXTURE = preload("res://Art/player/player_dead.png")
 const BLOOD_PARTICLES = preload("res://scenes/particles/blood_particles.tscn")
 const PISTOL_SCENE = preload("res://scenes/weapons/gun.tscn")
@@ -20,6 +21,7 @@ const RIFLE_PLAYER_TEXTURE = preload("res://Art/player/player_assault_rifle.png"
 
 # --- PLAYER STATS ---
 @export var health: int = 100
+@export var max_health: int = 100
 @export var knockback_distance: float = 50.0
 var has_key = false:
 	set(value):
@@ -44,6 +46,11 @@ func take_damage(amount: int, attacker_position: Vector2):
 	# 2. Subtract health first to see if this hit is fatal.
 	health -= amount
 	print("Player was hit! Health is now: ", health)
+	
+	# Tell the health bar to update
+	if health_bar:
+		health_bar.update_health(health, max_health)
+
 
 	# 3. Check if the player has died.
 	if health <= 0:

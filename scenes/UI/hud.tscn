@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://by2665dk3kjkn"]
+
+[ext_resource type="PackedScene" uid="uid://d4njjh6kgh5n1" path="res://scenes/UI/health_bar.tscn" id="1_rd3kb"]
+[ext_resource type="PackedScene" uid="uid://cxhfuqmao7kwo" path="res://scenes/UI/AmmoUI.tscn" id="2_y5tme"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="HealthBar" parent="." instance=ExtResource("1_rd3kb")]
+
+[node name="AmmoUi" parent="." instance=ExtResource("2_y5tme")]

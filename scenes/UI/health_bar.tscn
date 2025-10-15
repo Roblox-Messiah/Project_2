@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4njjh6kgh5n1"]
+
+[ext_resource type="Texture2D" uid="uid://ikfqbg33igf" path="res://Art/UI/health bar.png" id="1_yfd5g"]
+[ext_resource type="Script" uid="uid://qqub2fmlrlsn" path="res://health_bar.gd" id="2_4gt67"]
+[ext_resource type="Shader" uid="uid://bal17vrrwsbgi" path="res://health_bar.gdshader" id="3_yyth1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gt101"]
+shader = ExtResource("3_yyth1")
+shader_parameter/fill_ratio = 1.0
+shader_parameter/velocity = Vector2(0, 0)
+shader_parameter/slosh_speed = 8.0
+shader_parameter/slosh_amount = 0.02
+
+[node name="HealthBar" type="TextureProgressBar" groups=["ui_healthbar"]]
+offset_right = 120.0
+offset_bottom = 48.0
+scale = Vector2(0.814974, 0.814974)
+fill_mode = 1
+texture_under = ExtResource("1_yfd5g")
+script = ExtResource("2_4gt67")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gt101")
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 53.0
+offset_bottom = 51.0
+scale = Vector2(2.10091, 0.249824)
+color = Color(0.388235, 0.0588235, 0, 1)

@@ -35,6 +35,7 @@ screen_fader=""
 level_door=""
 player=""
 key_ui=""
+ui_healthbar=""
 
 [input]
 

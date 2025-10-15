@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dup34o5tmnaxo"]
+
+[ext_resource type="Script" uid="uid://ben6hhxglgyus" path="res://scripts/levels/teleporter.gd" id="1_edrd4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukcmo"]
+size = Vector2(45, 42)
+
+[node name="Teleporter" type="Area2D"]
+script = ExtResource("1_edrd4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_ukcmo")
+
+[node name="cooldown timer" type="Timer" parent="."]
+one_shot = true

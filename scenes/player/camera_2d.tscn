@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr14vrhserycw"]
+
+[ext_resource type="Script" uid="uid://hkxt50nrtc14" path="res://scripts/UX/camera_2d.gd" id="1_kpwl0"]
+
+[node name="Camera2D" type="Camera2D" node_paths=PackedStringArray("target_node")]
+script = ExtResource("1_kpwl0")
+target_node = NodePath("")
+smoothing = 3.0

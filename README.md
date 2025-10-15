@@ -66,3 +66,13 @@ made door level transition - 1hr 30 min
 
 made key card pickup overlay - 20 min
 
+made itch.io page banner and cover - 2hrs
+
+made health bar overlay - 45 min
+
+made functioning health bar - 20 min
+
+made health bar have wave effects - 20 min
+(help from google gemini - initial promt: in godot 4.1, how would i add a liquid simulation to a texture progress bar)
+
+created new ui module - 5 min
