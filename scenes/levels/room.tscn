@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bla726ry3k4cn"]
+[gd_scene load_steps=17 format=4 uid="uid://bla726ry3k4cn"]
 
 [ext_resource type="PackedScene" uid="uid://ctghbmspbjmvd" path="res://scenes/player/player.tscn" id="1_ms3in"]
 [ext_resource type="PackedScene" uid="uid://cr14vrhserycw" path="res://scenes/player/camera_2d.tscn" id="2_dngmm"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://cq82a4wkjlebm" path="res://scenes/UI/key_ui.tscn" id="12_dngmm"]
 [ext_resource type="PackedScene" uid="uid://ko1q5ef431ay" path="res://scenes/UI/game_manager.tscn" id="12_nymxq"]
 [ext_resource type="PackedScene" uid="uid://by2665dk3kjkn" path="res://scenes/UI/hud.tscn" id="13_dngmm"]
+[ext_resource type="PackedScene" uid="uid://cggs70uxdh0f4" path="res://scenes/UI/speech_bubble.tscn" id="14_nymxq"]
+[ext_resource type="PackedScene" uid="uid://d2of3k4r21yr6" path="res://scenes/UI/game_over_overlay.tscn" id="15_c8tw2"]
 
 [sub_resource type="Environment" id="Environment_dngmm"]
 background_mode = 3
@@ -22,18 +24,17 @@ glow_enabled = true
 y_sort_enabled = true
 
 [node name="Background" type="ColorRect" parent="."]
-visible = false
-z_index = -2
+z_index = -4
 custom_minimum_size = Vector2(320, 180)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -90.0
-offset_right = 160.0
-offset_bottom = 90.0
+offset_left = -272.0
+offset_top = -471.0
+offset_right = 344.0
+offset_bottom = -116.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.97983, 2.17709)
@@ -42,7 +43,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_ms3in")]
 position = Vector2(151, 96)
-rotation = -1.5708
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("2_dngmm")]
 target_node = NodePath("../Player")
@@ -124,3 +124,8 @@ next_level_path = "res://scenes/levels/level_2.tscn"
 environment = SubResource("Environment_dngmm")
 
 [node name="HUD" parent="." instance=ExtResource("13_dngmm")]
+
+[node name="SpeechBubble" parent="." instance=ExtResource("14_nymxq")]
+
+[node name="GameOverOverlay" parent="." instance=ExtResource("15_c8tw2")]
+visible = false

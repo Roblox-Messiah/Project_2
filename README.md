@@ -76,3 +76,10 @@ made health bar have wave effects - 20 min
 (help from google gemini - initial promt: in godot 4.1, how would i add a liquid simulation to a texture progress bar)
 
 created new ui module - 5 min
+
+made speech bubble art and overlay - 20 min
+    tutorial used: https://www.youtube.com/watch?v=OrTMWb1bN24
+
+made tutorial overlay prompts - 10 min
+
+made game over art/overlay - 25 min

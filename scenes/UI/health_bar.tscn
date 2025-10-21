@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4njjh6kgh5n1"]
 
 [ext_resource type="Texture2D" uid="uid://ikfqbg33igf" path="res://Art/UI/health bar.png" id="1_yfd5g"]
-[ext_resource type="Script" uid="uid://qqub2fmlrlsn" path="res://health_bar.gd" id="2_4gt67"]
+[ext_resource type="Script" uid="uid://qqub2fmlrlsn" path="res://scripts/UI/health_bar.gd" id="2_4gt67"]
 [ext_resource type="Shader" uid="uid://bal17vrrwsbgi" path="res://health_bar.gdshader" id="3_yyth1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gt101"]

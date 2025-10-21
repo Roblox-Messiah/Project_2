@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://ivtnrgm1ld0u"]
+
+[ext_resource type="Script" uid="uid://drjgglphyk6jj" path="res://scripts/UX/tutorial_trigger.gd" id="1_icruk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4y4y7"]
+
+[node name="Tutorial_Trigger" type="Area2D"]
+script = ExtResource("1_icruk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4y4y7")

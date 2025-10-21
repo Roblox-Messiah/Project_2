@@ -79,7 +79,7 @@ func _on_attack_area_body_exited(body):
 func attack(player):
 	attack_cooldown.start()
 	if player.has_method("take_damage"):
-		player.take_damage(10, global_position)
+		player.take_damage(25, global_position)
 
 func take_damage(amount: int, bullet):
 	if health <= 0:

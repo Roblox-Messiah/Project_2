@@ -71,9 +71,19 @@ func take_damage(amount: int, attacker_position: Vector2):
 		var direction_to_attacker = global_position.direction_to(attacker_position)
 		rotation = direction_to_attacker.angle() - (PI / 2)
 		
+		await get_tree().create_timer(1.0).timeout
+		# --- Find and show the Game Over screen ---
+		var game_over_screen = get_tree().get_first_node_in_group("game_over_ui")
+		if game_over_screen:
+			game_over_screen.show_overlay()
+		else:
+			# Fallback in case the screen isn't found
+			await get_tree().create_timer(2.0).timeout
+			get_tree().reload_current_scene()
+		
 		# Use 'await' to wait for the timer without needing 'async'
-		await get_tree().create_timer(2.0).timeout
-		get_tree().reload_current_scene()
+		#await get_tree().create_timer(2.0).timeout
+		#get_tree().reload_current_scene()
 		
 	else:
 		# --- HURT LOGIC ---

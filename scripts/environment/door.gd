@@ -33,6 +33,12 @@ func _process(_delta):
 			print("Door is locked!")
 			# --- Play Locked Sound ---
 			locked_sound.play()
+			# --- SHOW SPEECH BUBBLE ---
+			var bubble = get_tree().get_first_node_in_group("speech_bubble")
+			if bubble:
+				# Example: Pass in a player portrait texture
+				var player_portrait = preload("res://Art/player/player_portrait.png")
+				bubble.show_message("It's locked. I should find the key.", player_portrait, 3.0)
 
 func unlock():
 	# Tells the player that they have used the key
