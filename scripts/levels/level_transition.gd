@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var next_level_path: String
+## The number of the level this transition will unlock
+@export var unlocks_level_number: int = 0
 var has_triggered = false
 
 func _ready():
@@ -36,5 +38,9 @@ func start_fade():
 
 func change_level():
 	print("DEBUG: 'change_level' function was called. Changing scene.")
+	# Unlock the next level before changing the scene
+	if unlocks_level_number > 0:
+		SaveManager.unlock_level(unlocks_level_number)
+
 	if not next_level_path.is_empty():
 		get_tree().change_scene_to_file(next_level_path)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cb7k3njvoh33x"]
+[gd_scene load_steps=15 format=3 uid="uid://cb7k3njvoh33x"]
 
 [ext_resource type="TileSet" uid="uid://bsx5wk5tnpi8c" path="res://scenes/environment/indoors.tres" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://bwnxufjo82bo7" path="res://scenes/environment/Door.tscn" id="2_g2h2n"]
@@ -12,8 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://by2665dk3kjkn" path="res://scenes/UI/hud.tscn" id="11_brxtv"]
 [ext_resource type="PackedScene" uid="uid://ko1q5ef431ay" path="res://scenes/UI/game_manager.tscn" id="11_nt80m"]
 [ext_resource type="PackedScene" uid="uid://cggs70uxdh0f4" path="res://scenes/UI/speech_bubble.tscn" id="12_brxtv"]
+[ext_resource type="PackedScene" uid="uid://cq82a4wkjlebm" path="res://scenes/UI/key_ui.tscn" id="13_tv7cl"]
+[ext_resource type="PackedScene" uid="uid://765w1uwal5sg" path="res://scenes/UI/pause_menu.tscn" id="14_r88tb"]
 
 [node name="Level 2" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -4
@@ -48,26 +51,6 @@ position = Vector2(0, -160)
 [node name="Door" parent="." instance=ExtResource("2_g2h2n")]
 position = Vector2(512, 32)
 
-[node name="Key_spawn1" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
-position = Vector2(1927, -803)
-item_scene = ExtResource("4_3p04p")
-spawn_point_group = "key_spawns"
-
-[node name="Key_spawn2" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
-position = Vector2(1926, -898)
-item_scene = ExtResource("4_3p04p")
-spawn_point_group = "key_spawns"
-
-[node name="Key_spawn3" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
-position = Vector2(339, -286)
-item_scene = ExtResource("4_3p04p")
-spawn_point_group = "key_spawns"
-
-[node name="Key_spawn4" parent="." groups=["key_spawns"] instance=ExtResource("3_fiq81")]
-position = Vector2(1679, -1261)
-item_scene = ExtResource("4_3p04p")
-spawn_point_group = "key_spawns"
-
 [node name="Camera2D" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("5_l37oo")]
 target_node = NodePath("../Player")
 
@@ -97,5 +80,23 @@ position = Vector2(68, -160)
 target_teleporter_path = NodePath("../Teleporter D")
 
 [node name="RandomItemSpawner" parent="." instance=ExtResource("3_fiq81")]
+item_scene = ExtResource("4_3p04p")
+spawn_point_group = "key_spawns"
 
 [node name="SpeechBubble" parent="." instance=ExtResource("12_brxtv")]
+
+[node name="Key_spawn1" type="Area2D" parent="." groups=["key_spawns"]]
+position = Vector2(1928, -803)
+
+[node name="Key_spawn2" type="Area2D" parent="." groups=["key_spawns"]]
+position = Vector2(1926, -898)
+
+[node name="Key_spawn3" type="Area2D" parent="." groups=["key_spawns"]]
+position = Vector2(338, -287)
+
+[node name="Key_spawn4" type="Area2D" parent="." groups=["key_spawns"]]
+position = Vector2(1680, -1260)
+
+[node name="KeyUI" parent="." instance=ExtResource("13_tv7cl")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_r88tb")]

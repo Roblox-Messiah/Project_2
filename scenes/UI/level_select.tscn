@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://eawxm1ki3b1o"]
+
+[ext_resource type="Script" uid="uid://cji66uuamou3p" path="res://scripts/UX/level_select.gd" id="1_1fmgh"]
+[ext_resource type="Texture2D" uid="uid://b6lor6ggta3wt" path="res://Art/UI/menu background (epmty).png" id="2_0ra34"]
+[ext_resource type="Texture2D" uid="uid://cj7uykgpi0moy" path="res://Art/UI/level 1 icon.png" id="3_ty08u"]
+[ext_resource type="Texture2D" uid="uid://b1ydpvp8k75h8" path="res://Art/UI/level 2 icon.png" id="4_mi1ok"]
+[ext_resource type="Texture2D" uid="uid://bo5cxni6sjhbt" path="res://Art/UI/level 3 icon.png" id="5_7pml4"]
+[ext_resource type="Texture2D" uid="uid://bghpmyvrkj86x" path="res://Art/UI/menu back button.png" id="6_0ra34"]
+
+[node name="Level Select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1fmgh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0ra34")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.200646, 0.216473, 2.40654e-08, 0.305882)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_right = 45.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Select Level"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -20.0
+offset_right = 108.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level1" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_ty08u")
+flat = true
+
+[node name="Level2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_mi1ok")
+flat = true
+
+[node name="Level3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_7pml4")
+flat = true
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("6_0ra34")
+flat = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

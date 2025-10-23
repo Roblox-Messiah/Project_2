@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://df4co1lxibhxb" path="res://scripts/UI/key_ui.gd" id="1_5uoo4"]
 [ext_resource type="Texture2D" uid="uid://cogp3sh67vdvq" path="res://Art/environment/key.png" id="2_p5v47"]
 
-[node name="KeyUI" type="CanvasLayer"]
+[node name="KeyUI" type="CanvasLayer" groups=["key_ui"]]
 script = ExtResource("1_5uoo4")
 
 [node name="TextureRect" type="TextureRect" parent="."]

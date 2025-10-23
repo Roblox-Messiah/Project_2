@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfviu6ru5npc5"]
+
+[ext_resource type="Script" uid="uid://keypawgik6o4" path="res://scripts/UX/main_menu.gd" id="1_yonvy"]
+[ext_resource type="Texture2D" uid="uid://di1g7da0mglf6" path="res://Art/UI/main menu.png" id="2_5jstl"]
+[ext_resource type="Texture2D" uid="uid://c30ndo6r5xb5s" path="res://Art/UI/menu start button.png" id="3_ngj32"]
+[ext_resource type="Texture2D" uid="uid://c57n86c6nlqgj" path="res://Art/UI/menu new game button.png" id="4_bm8t2"]
+[ext_resource type="Texture2D" uid="uid://bmbpwq20sc18" path="res://Art/UI/menu tutorial button.png" id="5_5d4ag"]
+[ext_resource type="Texture2D" uid="uid://cwulete0fx1k4" path="res://Art/UI/menu exit button.png" id="6_um6dh"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_yonvy")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_5jstl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -57.0
+offset_right = -6.0
+offset_bottom = 107.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(1.05907, 0.839512)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_ngj32")
+flat = true
+icon_alignment = 1
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_bm8t2")
+flat = true
+icon_alignment = 1
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("5_5d4ag")
+flat = true
+icon_alignment = 1
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("6_um6dh")
+flat = true
+icon_alignment = 1
+
+[node name="ConfirmationPopup" type="ConfirmationDialog" parent="."]
+position = Vector2i(60, 52)
+dialog_text = "         Are You Sure?"
+
+[connection signal="confirmed" from="ConfirmationPopup" to="." method="_on_confirmation_dialog_confirmed"]
