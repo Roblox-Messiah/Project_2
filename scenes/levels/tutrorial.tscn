@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://7l0ji6bwlvau"]
+[gd_scene load_steps=18 format=3 uid="uid://7l0ji6bwlvau"]
 
 [ext_resource type="TileSet" uid="uid://bsx5wk5tnpi8c" path="res://scenes/environment/indoors.tres" id="1_oojrj"]
 [ext_resource type="PackedScene" uid="uid://bwnxufjo82bo7" path="res://scenes/environment/Door.tscn" id="1_qphhr"]
@@ -16,6 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://dyx511rnmpm2v" path="res://scenes/enimies/zombie/zombie.tscn" id="14_6e4tx"]
 [ext_resource type="PackedScene" uid="uid://d2of3k4r21yr6" path="res://scenes/UI/game_over_overlay.tscn" id="15_q5fit"]
 [ext_resource type="PackedScene" uid="uid://b1uoxbwi8yftr" path="res://scenes/environment/random_item_spawner.tscn" id="15_qk1cr"]
+
+[sub_resource type="Environment" id="Environment_qk1cr"]
+background_mode = 3
+ambient_light_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.5
 
 [node name="Tutrorial" type="Node2D"]
 y_sort_enabled = true
@@ -102,3 +109,9 @@ position = Vector2(-79, -47)
 
 [node name="Key_spawn2" type="Area2D" parent="." groups=["key_spawns"]]
 position = Vector2(-80, 140)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qk1cr")

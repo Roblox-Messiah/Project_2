@@ -34,7 +34,7 @@ shape = SubResource("CircleShape2D_eseir")
 debug_color = Color(0.182678, 0.639348, 0.190915, 0.42)
 
 [node name="RayCast2D" type="RayCast2D" parent="Detection"]
-collision_mask = 17
+collision_mask = 16
 
 [node name="hurt sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_jmu02")

@@ -19,7 +19,10 @@
 
 [sub_resource type="Environment" id="Environment_dngmm"]
 background_mode = 3
+ambient_light_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.5
 
 [node name="Level 1" type="Node2D"]
 y_sort_enabled = true
@@ -112,6 +115,7 @@ item_scene = ExtResource("4_vqeip")
 spawn_point_group = "key_spawns"
 
 [node name="ScreenFader" parent="." groups=["screen_fader"] instance=ExtResource("10_p71f0")]
+visible = false
 
 [node name="LevelTransition" parent="." instance=ExtResource("11_13i0w")]
 position = Vector2(680, -340)
@@ -133,3 +137,6 @@ environment = SubResource("Environment_dngmm")
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("16_7ft4d")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0383972, 0.0383972, 0.0383971, 1)

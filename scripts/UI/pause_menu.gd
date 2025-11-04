@@ -9,7 +9,7 @@ func _ready():
 	$VBoxContainer/RestartButton.pressed.connect(_on_restart_button_pressed)
 	$VBoxContainer/ExitButton.pressed.connect(_on_exit_button_pressed)
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()
 

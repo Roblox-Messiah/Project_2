@@ -83,3 +83,8 @@ made speech bubble art and overlay - 20 min
 made tutorial overlay prompts - 10 min
 
 made game over art/overlay - 25 min
+
+populated second level - 5 min
+
+kind of got lights to work - 2 hours
+    tutorial used: https://www.youtube.com/watch?v=6lximAlvBoE

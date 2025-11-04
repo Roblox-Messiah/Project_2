@@ -28,8 +28,10 @@ shape = SubResource("SegmentShape2D_mwybp")
 stream = ExtResource("3_ticc1")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.113281, 0.140625)
-color = Color(0.963154, 0.86448, 0.340026, 1)
+position = Vector2(2.23517e-07, 2.98023e-08)
+scale = Vector2(0.09375, 0.125)
+color = Color(0.996319, 0.981436, 0.898581, 1)
+energy = 0.1
 texture = SubResource("GradientTexture2D_vlap7")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cb7k3njvoh33x"]
+[gd_scene load_steps=18 format=3 uid="uid://cb7k3njvoh33x"]
 
 [ext_resource type="TileSet" uid="uid://bsx5wk5tnpi8c" path="res://scenes/environment/indoors.tres" id="1_j2425"]
 [ext_resource type="PackedScene" uid="uid://bwnxufjo82bo7" path="res://scenes/environment/Door.tscn" id="2_g2h2n"]
@@ -14,6 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://cggs70uxdh0f4" path="res://scenes/UI/speech_bubble.tscn" id="12_brxtv"]
 [ext_resource type="PackedScene" uid="uid://cq82a4wkjlebm" path="res://scenes/UI/key_ui.tscn" id="13_tv7cl"]
 [ext_resource type="PackedScene" uid="uid://765w1uwal5sg" path="res://scenes/UI/pause_menu.tscn" id="14_r88tb"]
+[ext_resource type="PackedScene" uid="uid://d2of3k4r21yr6" path="res://scenes/UI/game_over_overlay.tscn" id="15_1yj8c"]
+[ext_resource type="PackedScene" uid="uid://dyx511rnmpm2v" path="res://scenes/enimies/zombie/zombie.tscn" id="16_ndlae"]
+
+[sub_resource type="Environment" id="Environment_ndlae"]
+background_mode = 3
+ambient_light_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+glow_enabled = true
+fog_enabled = true
+fog_light_energy = 0.5
 
 [node name="Level 2" type="Node2D"]
 y_sort_enabled = true
@@ -46,7 +55,7 @@ layer_0/tile_data = PackedInt32Array(655360, 524288, 3, 589824, 589824, 0, 52428
 tile_set = ExtResource("1_j2425")
 
 [node name="Player" parent="." instance=ExtResource("4_l37oo")]
-position = Vector2(0, -160)
+position = Vector2(365, 191)
 
 [node name="Door" parent="." instance=ExtResource("2_g2h2n")]
 position = Vector2(512, 32)
@@ -100,3 +109,81 @@ position = Vector2(1680, -1260)
 [node name="KeyUI" parent="." instance=ExtResource("13_tv7cl")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("14_r88tb")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ndlae")
+
+[node name="GameOverOverlay" parent="." instance=ExtResource("15_1yj8c")]
+visible = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.0383972, 0.0383972, 0.0383971, 1)
+
+[node name="zombie" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(163, 149)
+
+[node name="zombie2" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(243, 207)
+
+[node name="zombie3" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(69, 127)
+
+[node name="zombie4" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-68, -50)
+
+[node name="zombie5" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(130, -40)
+
+[node name="zombie6" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(495, 111)
+
+[node name="zombie7" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(290, 84)
+
+[node name="zombie8" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(374, 122)
+
+[node name="zombie9" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-207, 16)
+
+[node name="zombie10" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-254, -84)
+
+[node name="zombie11" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-101, -146)
+
+[node name="zombie12" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-5, -187)
+
+[node name="zombie13" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(305, -291)
+
+[node name="zombie14" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(113, -241)
+
+[node name="zombie15" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-211, -313)
+
+[node name="zombie16" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(-14, -334)
+
+[node name="zombie17" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1371, -919)
+
+[node name="zombie18" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1623, -992)
+
+[node name="zombie19" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1605, -796)
+
+[node name="zombie20" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1798, -1048)
+
+[node name="zombie21" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1580, -1089)
+
+[node name="zombie22" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1877, -845)
+
+[node name="zombie23" parent="." instance=ExtResource("16_ndlae")]
+position = Vector2(1879, -872)

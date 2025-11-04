@@ -39,22 +39,25 @@ func _physics_process(_delta: float) -> void:
 	# --- LINE OF SIGHT CHECK ---
 	raycast.target_position = to_local(target.global_position)
 	raycast.force_raycast_update()
-	var can_see_player = false
-	if raycast.is_colliding():
-		var col = raycast.get_collider()
-		if col == target:
-			can_see_player = true
-			if not has_seen:
-				has_seen = can_see_player
-		
+	
+	# 'is_colliding' now means "is a wall in the way?"
+	var is_wall_blocking = raycast.is_colliding()
 
+	# If this is the first time we see the player, we need a clear path.
+	if not has_seen:
+		if not is_wall_blocking:
+			has_seen = true # We have seen them! Now we chase forever.
+		else:
+			target = null # Path is blocked, we didn't see them.
+			return
+	
 	# --- ATTACK LOGIC ---
-	# The zombie can only attack if it can see the player.
-	if can_see_player and player_in_attack_range and attack_cooldown.is_stopped():
+	# We can only attack if we are in range AND the path is not blocked.
+	if player_in_attack_range and not is_wall_blocking and attack_cooldown.is_stopped():
 		attack(target)
-	elif has_seen:
+	else:
 		# --- MOVEMENT LOGIC ---
-		# The zombie will always move towards the target, regardless of line of sight.
+		# 'has_seen' is true, so we chase no matter what.
 		look_at(target.global_position)
 		var direction = global_position.direction_to(target.global_position)
 		velocity = direction * speed

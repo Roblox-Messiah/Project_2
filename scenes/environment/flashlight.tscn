@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://biihx7hp2c85u"]
+
+[ext_resource type="Texture2D" uid="uid://dlb3mvu3jbrbs" path="res://Art/environment/light cone.jpg" id="1_bovok"]
+[ext_resource type="Script" uid="uid://do3y6lu81cah2" path="res://scripts/flashlight.gd" id="2_cn6pp"]
+
+[node name="flashlight" type="PointLight2D"]
+z_index = 1
+color = Color(0.927791, 0.810592, 0.592371, 1)
+blend_mode = 2
+range_z_min = -3
+range_z_max = 5
+shadow_enabled = true
+texture = ExtResource("1_bovok")
+texture_scale = 0.5
+script = ExtResource("2_cn6pp")

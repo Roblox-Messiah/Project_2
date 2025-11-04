@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctghbmspbjmvd"]
+[gd_scene load_steps=10 format=3 uid="uid://ctghbmspbjmvd"]
 
 [ext_resource type="Script" uid="uid://biyaw15byj4ne" path="res://scripts/player/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://ccg5yuhv6vd4p" path="res://scripts/UX/marker_2d.gd" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://nwaffuk8cb6b" path="res://Art/player/player_pistol.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dlb3mvu3jbrbs" path="res://Art/environment/light cone.jpg" id="4_qek5x"]
 [ext_resource type="AudioStream" uid="uid://c711t2yvuw4dp" path="res://sounds/damage/hit/player hit.mp3" id="5_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://vxmux767ony7" path="res://sounds/damage/death/meat_slam.mp3" id="6_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://bsfwqgbb23y6j" path="res://scenes/weapons/gun.tscn" id="6_75vfm"]
+[ext_resource type="Texture2D" uid="uid://dy4cw2m1y3jh7" path="res://Art/circle.png" id="8_qek5x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v321d"]
 radius = 8.0
@@ -23,6 +25,14 @@ script = ExtResource("2_hqtel")
 [node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
 rotation = -1.5708
 texture = ExtResource("2_i3pqv")
+
+[node name="flashlight2" type="PointLight2D" parent="Marker2D"]
+position = Vector2(40.75, 1)
+scale = Vector2(0.224734, 0.163043)
+color = Color(0.929412, 0.811765, 0.592157, 1)
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("4_qek5x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_v321d")
@@ -43,3 +53,9 @@ rotation = -1.5708
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -1.78814e-07)
+color = Color(0.929412, 0.811765, 0.592157, 1)
+energy = 0.2
+texture = ExtResource("8_qek5x")
