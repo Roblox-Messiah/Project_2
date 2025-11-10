@@ -84,6 +84,13 @@ made tutorial overlay prompts - 10 min
 
 made game over art/overlay - 25 min
 
+created main menu art and functionality - 35 min
+    autoload tutorial used: https://www.youtube.com/watch?v=3cCRkiWBPkg
+
+created level select menu art and functionality - 25 min
+
+created pause menu - 15 min
+
 populated second level - 5 min
 
 kind of got lights to work - 2 hours
